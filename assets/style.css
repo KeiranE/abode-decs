@@ -88,19 +88,34 @@
  .about-hero-image{height:300px}
 }
 
-/* Compact recommendations feature above the homepage gallery */
-.recommendation-strip{position:relative;isolation:isolate;overflow:hidden;padding:22px 0 24px;background:#f3f6f8;border-top:1px solid #dce3e7;border-bottom:1px solid #dce3e7}
-.recommendation-strip:before{content:"";position:absolute;z-index:-1;top:-90px;right:8%;width:230px;height:230px;border:1px solid #d9e2e8;border-radius:50%;box-shadow:0 0 0 20px #e8eef2,0 0 0 40px #edf2f5;opacity:.85;animation:recommendation-orbit 18s linear infinite}
-.recommendation-inner{display:grid;grid-template-columns:54px minmax(0,1fr) auto;align-items:center;gap:20px;position:relative}
-.recommendation-spark{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#082b45;color:#fff;box-shadow:0 0 0 6px #e1e9ee;animation:recommendation-glow 3s ease-in-out infinite}
-.recommendation-spark svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.recommendation-copy .eyebrow{margin:0 0 3px;color:#8d6831}
-.recommendation-copy h2{font-size:clamp(1.3rem,2vw,1.75rem);line-height:1.2;margin:0 0 4px;letter-spacing:-.025em}
-.recommendation-copy>p:last-child{margin:0;color:#586d7c;font-size:.88rem;line-height:1.45}
-.recommendation-link{display:inline-flex;align-items:center;justify-content:center;gap:14px;white-space:nowrap;padding:11px 15px;border:1px solid #082b45;color:#082b45;text-decoration:none;font-size:.82rem;font-weight:650;transition:background .2s ease,color .2s ease,transform .2s ease}
-.recommendation-link:hover,.recommendation-link:focus-visible{background:#082b45;color:white;transform:translateY(-2px)}
-.recommendation-link span{font-size:1rem}
-@keyframes recommendation-orbit{to{transform:rotate(360deg)}}
-@keyframes recommendation-glow{0%,100%{box-shadow:0 0 0 6px #e1e9ee}50%{box-shadow:0 0 0 9px #e1e9ee}}
-@media(max-width:650px){.recommendation-strip{padding:16px 0}.recommendation-inner{grid-template-columns:38px minmax(0,1fr);gap:10px 12px}.recommendation-spark{width:36px;height:36px;box-shadow:0 0 0 4px #e1e9ee}.recommendation-spark svg{width:20px;height:20px}.recommendation-copy h2{font-size:1.18rem}.recommendation-copy>p:last-child{font-size:.78rem}.recommendation-link{grid-column:2;justify-self:start;padding:8px 11px;font-size:.75rem}}
-@media(prefers-reduced-motion:reduce){.recommendation-strip:before,.recommendation-spark{animation:none}.recommendation-link{transition:none}}
+
+
+/* Customer reviews strip above the homepage gallery */
+.review-strip{position:relative;isolation:isolate;overflow:hidden;padding:20px 0 22px;background:#f3f6f8;border-top:1px solid #dce3e7;border-bottom:1px solid #dce3e7}
+.review-strip:before{content:"";position:absolute;z-index:-1;top:-95px;right:4%;width:230px;height:230px;border:1px solid #d9e2e8;border-radius:50%;box-shadow:0 0 0 20px #e8eef2,0 0 0 40px #edf2f5;opacity:.8;animation:review-orbit 24s linear infinite}
+.review-inner{display:grid;grid-template-columns:minmax(180px,.78fr) minmax(0,2fr);align-items:center;gap:22px;position:relative}
+.review-heading .eyebrow{margin:0 0 4px;color:#8d6831}
+.review-heading h2{font-size:clamp(1.35rem,2.1vw,1.85rem);line-height:1.2;margin:0;letter-spacing:-.025em}
+.review-panels{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(180px,.8fr);align-items:stretch;gap:12px}
+.review-panel{position:relative;display:flex;flex-direction:column;justify-content:center;min-width:0;min-height:132px;margin:0;padding:17px 20px;background:#fff;border:1px solid #dce3e7;box-shadow:0 5px 16px #082b450a;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.review-panel:hover{transform:translateY(-3px);border-color:#8ba4b5;box-shadow:0 10px 24px #082b4515}
+.review-quote{padding-left:45px}
+.review-quote-mark{position:absolute;top:10px;left:16px;color:#b18a52;font-family:Georgia,serif;font-size:2.6rem;line-height:1}
+.review-quote>p{margin:0 0 12px;color:#233e50;font-family:Georgia,'Times New Roman',serif;font-size:.98rem;line-height:1.45}
+.review-quote footer{display:flex;align-items:center;gap:8px;color:#586d7c;font-size:.72rem;line-height:1.2}
+.review-quote footer strong{color:#082b45;font-size:.76rem}
+.review-quote footer span{padding-left:8px;border-left:1px solid #d5dee4}
+.review-summary{align-items:flex-start;background:#082b45;color:white;border-color:#082b45}
+.review-score{font-family:Georgia,'Times New Roman',serif;font-size:2.5rem;line-height:1;color:#fff}
+.review-summary>p{margin:5px 0 12px;color:#e5edf2;font-size:.83rem;line-height:1.3}
+.review-summary-meta{display:flex;flex-wrap:wrap;align-items:center;gap:5px 9px;color:#cdd9e1;font-size:.67rem}
+.review-summary-meta strong{color:#d7b679;font-size:.78rem}
+@keyframes review-orbit{to{transform:rotate(360deg)}}
+@media(max-width:760px){.review-strip{padding:16px 0}.review-inner{grid-template-columns:1fr;gap:12px}.review-heading h2{font-size:1.3rem}.review-panels{grid-template-columns:minmax(0,1.55fr) minmax(145px,.8fr);gap:9px}.review-panel{min-height:142px;padding:13px 14px}.review-quote{padding-left:35px}.review-quote-mark{left:10px;top:8px;font-size:2.15rem}.review-quote>p{font-size:.87rem;margin-bottom:9px}.review-quote footer{font-size:.66rem}.review-quote footer strong{font-size:.69rem}.review-score{font-size:2.1rem}.review-summary>p{font-size:.73rem;margin:5px 0 10px}.review-summary-meta{font-size:.6rem}.review-summary-meta strong{font-size:.7rem}}
+@media(max-width:430px){.review-panels{grid-template-columns:1fr}.review-panel{min-height:unset}.review-quote{padding-top:17px;padding-bottom:14px}.review-summary{padding:14px 16px}.review-score{font-size:1.85rem}.review-summary>p{margin-bottom:7px}}
+@media(prefers-reduced-motion:reduce){.review-strip:before{animation:none}.review-panel{transition:none}}
+
+/* Keep service links level across cards with headings that wrap */
+.service-groups>.group-card{display:flex;flex-direction:column}
+.service-groups>.group-card>.card-copy{display:flex;flex:1;flex-direction:column}
+.service-groups>.group-card>.card-copy>.text-link{margin-top:auto;padding-top:18px}

@@ -90,30 +90,29 @@
 
 
 
-/* Customer reviews strip above the homepage gallery */
-.review-strip{position:relative;isolation:isolate;overflow:hidden;padding:20px 0 22px;background:#f3f6f8;border-top:1px solid #dce3e7;border-bottom:1px solid #dce3e7}
-.review-strip:before{content:"";position:absolute;z-index:-1;top:-95px;right:4%;width:230px;height:230px;border:1px solid #d9e2e8;border-radius:50%;box-shadow:0 0 0 20px #e8eef2,0 0 0 40px #edf2f5;opacity:.8;animation:review-orbit 24s linear infinite}
-.review-inner{display:grid;grid-template-columns:minmax(180px,.78fr) minmax(0,2fr);align-items:center;gap:22px;position:relative}
+/* Reputation and customer review strip beneath the homepage hero */
+.review-strip{position:relative;isolation:isolate;overflow:hidden;padding:24px 0;background:#f3f6f8;border-top:1px solid #dce3e7;border-bottom:1px solid #dce3e7}
+.review-strip:before{content:"";position:absolute;z-index:-1;top:-95px;right:5%;width:230px;height:230px;border:1px solid #d9e2e8;border-radius:50%;box-shadow:0 0 0 20px #e8eef2,0 0 0 40px #edf2f5;opacity:.8;animation:review-orbit 24s linear infinite}
+.review-inner{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.3fr) auto;align-items:center;gap:24px;position:relative}
 .review-heading .eyebrow{margin:0 0 4px;color:#8d6831}
 .review-heading h2{font-size:clamp(1.35rem,2.1vw,1.85rem);line-height:1.2;margin:0;letter-spacing:-.025em}
-.review-panels{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(180px,.8fr);align-items:stretch;gap:12px}
-.review-panel{position:relative;display:flex;flex-direction:column;justify-content:center;min-width:0;min-height:132px;margin:0;padding:17px 20px;background:#fff;border:1px solid #dce3e7;box-shadow:0 5px 16px #082b450a;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
-.review-panel:hover{transform:translateY(-3px);border-color:#8ba4b5;box-shadow:0 10px 24px #082b4515}
-.review-quote{padding-left:45px}
-.review-quote-mark{position:absolute;top:10px;left:16px;color:#b18a52;font-family:Georgia,serif;font-size:2.6rem;line-height:1}
-.review-quote>p{margin:0 0 12px;color:#233e50;font-family:Georgia,'Times New Roman',serif;font-size:.98rem;line-height:1.45}
+.review-stars{margin-top:9px;color:#c99d4b;font-size:1.2rem;letter-spacing:.12em;line-height:1}
+.review-rating-copy{display:flex;flex-wrap:wrap;gap:4px 10px;margin:6px 0 0;color:#586d7c;font-size:.72rem;line-height:1.3}
+.review-rating-copy strong{color:#082b45}
+.review-panels{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px}
+.review-quote{position:relative;display:flex;flex-direction:column;justify-content:center;min-width:0;min-height:126px;margin:0;padding:16px 20px 15px 45px;background:#fff;border:1px solid #dce3e7;box-shadow:0 5px 16px #082b450a;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.review-quote:hover{transform:translateY(-3px);border-color:#8ba4b5;box-shadow:0 10px 24px #082b4515}
+.review-quote-mark{position:absolute;top:9px;left:15px;color:#b18a52;font-family:Georgia,serif;font-size:2.6rem;line-height:1}
+.review-quote>p{margin:0 0 10px;color:#233e50;font-family:Georgia,'Times New Roman',serif;font-size:.96rem;line-height:1.45}
 .review-quote footer{display:flex;align-items:center;gap:8px;color:#586d7c;font-size:.72rem;line-height:1.2}
 .review-quote footer strong{color:#082b45;font-size:.76rem}
 .review-quote footer span{padding-left:8px;border-left:1px solid #d5dee4}
-.review-summary{align-items:flex-start;background:#082b45;color:white;border-color:#082b45}
-.review-score{font-family:Georgia,'Times New Roman',serif;font-size:2.5rem;line-height:1;color:#fff}
-.review-summary>p{margin:5px 0 12px;color:#e5edf2;font-size:.83rem;line-height:1.3}
-.review-summary-meta{display:flex;flex-wrap:wrap;align-items:center;gap:5px 9px;color:#cdd9e1;font-size:.67rem}
-.review-summary-meta strong{color:#d7b679;font-size:.78rem}
+.review-more{display:inline-flex;align-items:center;justify-content:center;gap:10px;white-space:nowrap;padding:11px 14px;border:1px solid #082b45;color:#082b45;text-decoration:none;font-size:.78rem;font-weight:650;transition:background .2s ease,color .2s ease,transform .2s ease}
+.review-more:hover,.review-more:focus-visible{background:#082b45;color:white;transform:translateY(-2px)}
 @keyframes review-orbit{to{transform:rotate(360deg)}}
-@media(max-width:760px){.review-strip{padding:16px 0}.review-inner{grid-template-columns:1fr;gap:12px}.review-heading h2{font-size:1.3rem}.review-panels{grid-template-columns:minmax(0,1.55fr) minmax(145px,.8fr);gap:9px}.review-panel{min-height:142px;padding:13px 14px}.review-quote{padding-left:35px}.review-quote-mark{left:10px;top:8px;font-size:2.15rem}.review-quote>p{font-size:.87rem;margin-bottom:9px}.review-quote footer{font-size:.66rem}.review-quote footer strong{font-size:.69rem}.review-score{font-size:2.1rem}.review-summary>p{font-size:.73rem;margin:5px 0 10px}.review-summary-meta{font-size:.6rem}.review-summary-meta strong{font-size:.7rem}}
-@media(max-width:430px){.review-panels{grid-template-columns:1fr}.review-panel{min-height:unset}.review-quote{padding-top:17px;padding-bottom:14px}.review-summary{padding:14px 16px}.review-score{font-size:1.85rem}.review-summary>p{margin-bottom:7px}}
-@media(prefers-reduced-motion:reduce){.review-strip:before{animation:none}.review-panel{transition:none}}
+@media(max-width:900px){.review-inner{grid-template-columns:minmax(190px,.8fr) minmax(0,1.2fr);gap:14px}.review-panels{grid-template-columns:1fr}.review-more{justify-self:start;margin-top:0}}
+@media(max-width:650px){.review-strip{padding:18px 0}.review-inner{grid-template-columns:1fr;gap:12px}.review-heading h2{font-size:1.3rem}.review-stars{margin-top:7px}.review-rating-copy{margin-top:4px}.review-quote{min-height:unset;padding:16px 15px 13px 37px}.review-quote-mark{left:10px;top:8px;font-size:2.15rem}.review-quote>p{font-size:.87rem;margin-bottom:8px}.review-quote footer{font-size:.66rem}.review-quote footer strong{font-size:.69rem}.review-more{padding:9px 12px;font-size:.75rem}}
+@media(prefers-reduced-motion:reduce){.review-strip:before{animation:none}.review-quote,.review-more{transition:none}}
 
 /* Keep service links level across cards with headings that wrap */
 .service-groups>.group-card{display:flex;flex-direction:column}

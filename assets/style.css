@@ -87,3 +87,20 @@
  .about-approach-grid article{min-height:0}
  .about-hero-image{height:300px}
 }
+
+/* Compact recommendations feature above the homepage gallery */
+.recommendation-strip{position:relative;isolation:isolate;overflow:hidden;padding:22px 0 24px;background:#f3f6f8;border-top:1px solid #dce3e7;border-bottom:1px solid #dce3e7}
+.recommendation-strip:before{content:"";position:absolute;z-index:-1;top:-90px;right:8%;width:230px;height:230px;border:1px solid #d9e2e8;border-radius:50%;box-shadow:0 0 0 20px #e8eef2,0 0 0 40px #edf2f5;opacity:.85;animation:recommendation-orbit 18s linear infinite}
+.recommendation-inner{display:grid;grid-template-columns:54px minmax(0,1fr) auto;align-items:center;gap:20px;position:relative}
+.recommendation-spark{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#082b45;color:#fff;box-shadow:0 0 0 6px #e1e9ee;animation:recommendation-glow 3s ease-in-out infinite}
+.recommendation-spark svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.recommendation-copy .eyebrow{margin:0 0 3px;color:#8d6831}
+.recommendation-copy h2{font-size:clamp(1.3rem,2vw,1.75rem);line-height:1.2;margin:0 0 4px;letter-spacing:-.025em}
+.recommendation-copy>p:last-child{margin:0;color:#586d7c;font-size:.88rem;line-height:1.45}
+.recommendation-link{display:inline-flex;align-items:center;justify-content:center;gap:14px;white-space:nowrap;padding:11px 15px;border:1px solid #082b45;color:#082b45;text-decoration:none;font-size:.82rem;font-weight:650;transition:background .2s ease,color .2s ease,transform .2s ease}
+.recommendation-link:hover,.recommendation-link:focus-visible{background:#082b45;color:white;transform:translateY(-2px)}
+.recommendation-link span{font-size:1rem}
+@keyframes recommendation-orbit{to{transform:rotate(360deg)}}
+@keyframes recommendation-glow{0%,100%{box-shadow:0 0 0 6px #e1e9ee}50%{box-shadow:0 0 0 9px #e1e9ee}}
+@media(max-width:650px){.recommendation-strip{padding:16px 0}.recommendation-inner{grid-template-columns:38px minmax(0,1fr);gap:10px 12px}.recommendation-spark{width:36px;height:36px;box-shadow:0 0 0 4px #e1e9ee}.recommendation-spark svg{width:20px;height:20px}.recommendation-copy h2{font-size:1.18rem}.recommendation-copy>p:last-child{font-size:.78rem}.recommendation-link{grid-column:2;justify-self:start;padding:8px 11px;font-size:.75rem}}
+@media(prefers-reduced-motion:reduce){.recommendation-strip:before,.recommendation-spark{animation:none}.recommendation-link{transition:none}}

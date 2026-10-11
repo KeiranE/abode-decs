@@ -94,7 +94,7 @@
 .review-strip{position:relative;isolation:isolate;overflow:hidden;padding:25px 0;background:#fff;border-top:1px solid #dce3e7;border-bottom:1px solid #dce3e7}
 .review-strip:before{display:none}
 .review-inner{display:grid;grid-template-columns:minmax(170px,.8fr) minmax(0,1.8fr) minmax(170px,.8fr);align-items:center;gap:24px;position:relative;background:#fff}
-.review-heading{background:#fff}.review-proof{background:#fff}\n.review-heading h2{font-size:clamp(1.4rem,2vw,1.85rem);line-height:1.2;margin:0;letter-spacing:-.025em;max-width:12ch}
+.review-heading{background:#fff}.review-proof{background:#fff}\n.review-heading h2{font-size:clamp(1.2rem,1.55vw,1.55rem);line-height:1.2;margin:0;letter-spacing:-.025em;max-width:12ch}
 .review-carousel{min-width:0}
 .review-viewport{overflow:hidden;border-radius:2px}
 .review-track{display:flex;align-items:stretch;transition:transform .85s cubic-bezier(.22,.72,.2,1)}

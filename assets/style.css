@@ -267,3 +267,17 @@ input,select,textarea{border-color:#71808a}
  .review-more{display:inline-flex;align-self:center;margin:0 auto;padding:14px 23px;font-size:.9rem;font-weight:700}
 }
 @media(max-width:420px){.review-quote{min-height:142px}}
+
+
+/* Mobile review panels: roomier copy, bottom-right stars and text link */
+@media(max-width:650px){
+ .review-heading h2:after{display:block;width:48px;height:2px;margin:8px auto 0;background:#c99d4b}
+ .review-carousel{width:calc(100% + 30px);margin-inline:-15px}
+ .review-quote{min-height:142px;padding:16px 16px 42px 38px}
+ .review-quote>p{font-size:.82rem;line-height:1.4;margin-bottom:8px}
+ .review-quote footer{padding-right:100px;font-size:.64rem}
+ .review-quote footer strong{font-size:.68rem}
+ .review-slide-stars{top:auto;right:14px;bottom:13px}
+ .review-more{padding:8px 0;border:0;background:transparent;color:#8a642d;text-decoration:underline;text-underline-offset:3px;font-size:.9rem;font-weight:700;transform:none}
+ .review-more:hover,.review-more:focus-visible{background:transparent;border:0;color:#745222;transform:none}
+}

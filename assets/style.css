@@ -227,3 +227,16 @@ input,select,textarea{border-color:#71808a}
 .footer-action-whatsapp .footer-action-icon{color:#25d366}
 .footer-action-facebook .footer-action-icon{color:#5b9df6}
 .footer-action-copy small,.footer-action:hover .footer-action-copy small{color:#c3d0d8}
+
+
+/* Footer contact actions: compact inline links without separators */
+.footer-contact-actions{gap:0}
+.footer-action{gap:10px;padding:8px 0;border:0;min-height:0}
+.footer-action:last-child{border:0}
+.footer-action:hover,.footer-action:focus-visible{border:0}
+.footer-action-icon{flex:0 0 22px;width:22px;height:22px}
+.footer-action-copy{display:flex;align-items:baseline;gap:9px;line-height:1.35}
+.footer-action-copy strong{font-size:.88rem}
+.footer-action-copy small{color:#c3d0d8;font-size:.72rem}
+.footer-action-arrow{display:none}
+@media(max-width:650px){.footer-contact-actions{gap:0}.footer-action{padding:8px 0}}

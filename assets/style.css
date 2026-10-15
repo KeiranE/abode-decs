@@ -153,3 +153,7 @@
 .conversation-link small{color:#586d7c;font-size:.72rem;line-height:1.3}
 .conversation-arrow{font-size:1rem;font-weight:700}
 @media(max-width:650px){.multi-choice-group{margin:14px 0 18px}.multi-choice-grid,.tile-choice-group .choice-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.multi-choice-grid label{min-height:48px;padding:10px;font-size:.78rem}.tile-choice-group .choice-grid label{min-height:48px;padding:10px}.conversation-actions{grid-template-columns:1fr}.conversation-link{padding:11px 12px}}
+
+/* Contact actions and multi-select painting scope */
+.conversation-icon-whatsapp{background:#25d366}
+.conversation-icon-whatsapp svg{stroke:#fff}

@@ -172,3 +172,26 @@ a.button[href="https://www.facebook.com/Abodedecs/"]:hover,a.button[href="https:
 /* WCAG fixes: stronger form boundaries */
 input,select,textarea{border-color:#71808a}
 .choice-grid label{border-color:#71808a}
+
+
+/* Mobile and tablet navigation, review layout and gallery action */
+@media(max-width:960px){
+ .menu-toggle{display:grid;place-content:center;gap:5px;width:48px;height:48px;padding:0;background:#082b45;color:#fff;border:0;border-radius:2px;cursor:pointer}
+ .menu-toggle:focus-visible{outline:3px solid #c99d4b;outline-offset:3px}
+ .hamburger-icon{display:grid;width:22px;gap:5px}
+ .hamburger-icon span{display:block;width:22px;height:2px;background:currentColor;border-radius:2px;transition:transform .2s ease,opacity .2s ease}
+ .menu-toggle[aria-expanded=true] .hamburger-icon span:first-child{transform:translateY(7px) rotate(45deg)}
+ .menu-toggle[aria-expanded=true] .hamburger-icon span:nth-child(2){opacity:0}
+ .menu-toggle[aria-expanded=true] .hamburger-icon span:last-child{transform:translateY(-7px) rotate(-45deg)}
+ .review-inner{grid-template-columns:minmax(0,1fr);gap:16px;text-align:center;justify-items:center}
+ .review-heading{display:flex;justify-content:center;width:100%;overflow:visible}
+ .review-heading h2{text-align:center;border-left:0;padding:0 0 9px;max-width:680px}
+ .review-heading h2:after{content:"";display:block;width:48px;height:2px;margin:10px auto 0;background:#c99d4b}
+ .review-carousel{width:min(100%,700px)}
+ .review-viewport{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#c99d4b #f1f2f1;-webkit-overflow-scrolling:touch}
+ .review-track{width:100%;transform:none!important;transition:none}
+ .review-quote{flex:0 0 100%;scroll-snap-align:center}
+ .review-proof{grid-column:auto;display:flex;flex-direction:column;flex-wrap:wrap;align-items:center;justify-content:center;text-align:center;gap:8px}
+ .work-section .wrap>a.button[href="https://www.facebook.com/Abodedecs/"]{display:table;margin:28px auto 0}
+}
+@media(prefers-reduced-motion:reduce){.review-viewport{overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:auto}.review-track{width:100%;transform:none!important;transition:none}.review-quote{scroll-snap-align:center}}

@@ -168,3 +168,13 @@ a.review-more:hover,a.review-more:focus-visible{background:#745222;border-color:
 /* Match the Our Work Facebook action to the gold primary buttons */
 a.button[href="https://www.facebook.com/Abodedecs/"]{background:#8a642d;border-color:#8a642d;color:#fff}
 a.button[href="https://www.facebook.com/Abodedecs/"]:hover,a.button[href="https://www.facebook.com/Abodedecs/"]:focus-visible{background:#745222;border-color:#745222;color:#fff}
+
+
+/* WCAG fixes: stronger form boundaries and a clear carousel pause control */
+input,select,textarea{border-color:#71808a}
+.choice-grid label{border-color:#71808a}
+.review-controls{margin-top:7px}
+.review-controls .review-toggle{min-height:36px;padding:7px 11px;border:1px solid #71808a;border-radius:2px;background:#fff;color:#082b45;font-size:.75rem;font-weight:700;line-height:1.2}
+.review-controls .review-toggle:hover{background:#f2f6f8}
+.review-controls .review-toggle:focus-visible{outline:3px solid #bf8b38;outline-offset:3px}
+@media(max-width:850px){.review-controls{display:none}}

@@ -131,3 +131,25 @@
 .service-groups>.group-card{display:flex;flex-direction:column}
 .service-groups>.group-card>.card-copy{display:flex;flex:1;flex-direction:column}
 .service-groups>.group-card>.card-copy>.text-link{margin-top:auto;padding-top:18px}
+
+/* Project enquiry: faster choices, grouped prompts and clear contact actions */
+.multi-choice-group{border:0;padding:0;margin:18px 0 22px;min-width:0}
+.multi-choice-group legend,.tile-choice-group legend{font-size:1rem;font-weight:700;line-height:1.35;color:#082b45;padding:0;margin-bottom:10px}
+.multi-choice-group legend span{color:#9a7135}
+.multi-choice-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.multi-choice-grid label{min-height:54px;line-height:1.35}
+.multi-choice-grid input[type=checkbox]{width:18px;height:18px;min-height:0;padding:0;flex:none;accent-color:#082b45}
+.tile-choice-group{border:0;padding:0;margin:18px 0;min-width:0}
+.tile-choice-group .choice-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.tile-choice-group .choice-grid label{justify-content:center;min-height:54px;padding:12px}
+.conversation-prompt{margin:26px 0 10px;color:#082b45;font-weight:700;font-size:.95rem}
+.conversation-actions{display:grid;gap:10px;margin:0 0 8px}
+.conversation-link{display:grid;grid-template-columns:42px minmax(0,1fr) 18px;align-items:center;gap:12px;padding:12px 14px;background:#f5f8fa;border:1px solid #d3dfe6;border-left:3px solid #c99d4b;color:#082b45;text-decoration:none;transition:background .18s ease,border-color .18s ease,transform .18s ease}
+.conversation-link:hover,.conversation-link:focus-visible{background:#eaf0f4;border-color:#9eb2bf;transform:translateY(-1px);text-decoration:none}
+.conversation-icon{display:grid;place-items:center;width:38px;height:38px;background:#082b45;border-radius:50%;color:#fff}
+.conversation-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.conversation-link>span:nth-child(2){display:grid;gap:2px}
+.conversation-link strong{font-size:.9rem;line-height:1.25}
+.conversation-link small{color:#586d7c;font-size:.72rem;line-height:1.3}
+.conversation-arrow{font-size:1rem;font-weight:700}
+@media(max-width:650px){.multi-choice-group{margin:14px 0 18px}.multi-choice-grid,.tile-choice-group .choice-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.multi-choice-grid label{min-height:48px;padding:10px;font-size:.78rem}.tile-choice-group .choice-grid label{min-height:48px;padding:10px}.conversation-actions{grid-template-columns:1fr}.conversation-link{padding:11px 12px}}

@@ -157,3 +157,10 @@
 /* Contact actions and multi-select painting scope */
 .conversation-icon-whatsapp{background:#25d366}
 .conversation-icon-whatsapp svg{stroke:#fff}
+
+/* Gold primary action colour across project and Facebook calls to action */
+a.button[href="contact.html"],
+a.button[href="contact.html"]:focus-visible{background:#c99d4b;border-color:#c99d4b;color:#082b45}
+a.button[href="contact.html"]:hover{background:#b98a37;border-color:#b98a37;color:#082b45}
+a.review-more{background:#c99d4b;border-color:#c99d4b;color:#082b45;font-weight:700}
+a.review-more:hover,a.review-more:focus-visible{background:#b98a37;border-color:#b98a37;color:#082b45}

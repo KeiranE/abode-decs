@@ -160,7 +160,7 @@
 
 /* Gold primary action colour across project and Facebook calls to action */
 a.button[href="contact.html"],
-a.button[href="contact.html"]:focus-visible{background:#c99d4b;border-color:#c99d4b;color:#082b45}
-a.button[href="contact.html"]:hover{background:#b98a37;border-color:#b98a37;color:#082b45}
-a.review-more{background:#c99d4b;border-color:#c99d4b;color:#082b45;font-weight:700}
-a.review-more:hover,a.review-more:focus-visible{background:#b98a37;border-color:#b98a37;color:#082b45}
+a.button[href="contact.html"]:focus-visible{background:#8a642d;border-color:#8a642d;color:#fff}
+a.button[href="contact.html"]:hover{background:#745222;border-color:#745222;color:#fff}
+a.review-more{background:#8a642d;border-color:#8a642d;color:#fff;font-weight:700}
+a.review-more:hover,a.review-more:focus-visible{background:#745222;border-color:#745222;color:#fff}

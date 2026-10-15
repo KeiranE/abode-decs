@@ -164,3 +164,7 @@ a.button[href="contact.html"]:focus-visible{background:#8a642d;border-color:#8a6
 a.button[href="contact.html"]:hover{background:#745222;border-color:#745222;color:#fff}
 a.review-more{background:#8a642d;border-color:#8a642d;color:#fff;font-weight:700}
 a.review-more:hover,a.review-more:focus-visible{background:#745222;border-color:#745222;color:#fff}
+
+/* Match the Our Work Facebook action to the gold primary buttons */
+a.button[href="https://www.facebook.com/Abodedecs/"]{background:#8a642d;border-color:#8a642d;color:#fff}
+a.button[href="https://www.facebook.com/Abodedecs/"]:hover,a.button[href="https://www.facebook.com/Abodedecs/"]:focus-visible{background:#745222;border-color:#745222;color:#fff}

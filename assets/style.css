@@ -281,3 +281,7 @@ input,select,textarea{border-color:#71808a}
  .review-more{padding:8px 0;border:0;background:transparent;color:#8a642d;text-decoration:underline;text-underline-offset:3px;font-size:.9rem;font-weight:700;transform:none}
  .review-more:hover,.review-more:focus-visible{background:transparent;border:0;color:#745222;transform:none}
 }
+
+
+/* Facebook review link: gold text with no filled button background */
+a.review-more,a.review-more:hover,a.review-more:focus-visible{background:transparent;border:0;color:#8a642d;text-decoration:underline;text-underline-offset:3px;box-shadow:none;transform:none}

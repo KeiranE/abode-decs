@@ -289,4 +289,4 @@ a.review-more,a.review-more:hover,a.review-more:focus-visible{background:transpa
 
 /* Footer credit beside the copyright */
 .footer .footer-credit{display:flex;align-items:center;gap:10px 24px;flex-wrap:wrap}
-.footer-credit a{color:#8a642d;text-decoration:underline;text-underline-offset:3px}
+.footer-credit a{display:inline-block;padding:2px 7px;background:#082b45;color:#fff;text-decoration:underline;text-underline-offset:3px}

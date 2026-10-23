@@ -290,3 +290,10 @@ a.review-more,a.review-more:hover,a.review-more:focus-visible{background:transpa
 /* Footer credit beside the copyright */
 .footer .footer-credit{display:flex;align-items:center;gap:10px 24px;flex-wrap:wrap}
 .footer-credit a{display:inline-block;padding:2px 7px;background:#082b45;color:#fff;text-decoration:underline;text-underline-offset:3px}
+
+/* Review slideshow controls use the existing review-card format at every width. */
+.review-controls{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px}
+.review-controls button{min-width:44px;min-height:44px;padding:6px 12px;border:1px solid #d5dee4;border-radius:2px;background:#fff;color:#082b45;font-size:.8rem}
+.review-controls button:hover{background:#f2efe9}
+.review-position{min-width:42px;text-align:center;color:#586d7c;font-size:.75rem}
+.review-viewport{overscroll-behavior-x:contain}

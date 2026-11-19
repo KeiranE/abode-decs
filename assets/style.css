@@ -372,3 +372,6 @@ a.review-more,a.review-more:hover,a.review-more:focus-visible{background:transpa
 @media(min-width:651px) and (max-width:1080px){.services-section .service-groups{grid-template-columns:repeat(2,minmax(0,1fr))}.services-section .service-groups>.group-card:last-child{grid-column:1/-1}}
 @media(max-width:650px){.services-section .service-groups{grid-template-columns:minmax(0,1fr)}.services-section .service-groups>.group-card{grid-column:auto!important}}
 .services-section .group-card>img{width:100%;object-fit:cover;object-position:center;height:clamp(200px,20vw,260px)}
+
+.services-section .service-groups>.group-card[hidden]{display:none!important}
+@media(min-width:1081px){.services-section .service-groups:has(.group-card[hidden]){grid-template-columns:repeat(2,minmax(0,1fr))}.services-section .service-groups:has(.group-card[hidden])>.group-card:not([hidden]){grid-column:auto!important}}

@@ -85,7 +85,7 @@ let active=0,paused=reduced.matches,hovered=false,focused=false,touching=false,t
 function index(){return Math.max(0,Math.min(slides.length-1,Math.round(viewport.scrollLeft/Math.max(1,viewport.clientWidth))));}
 function update(){active=index();}
 function stop(){clearTimeout(timer);timer=null;}
-function schedule(){stop();if(!paused&&!hovered&&!focused&&!touching&&!document.hidden)timer=setTimeout(()=>go(active+1),5000);}
+function schedule(){stop();if(!paused&&!hovered&&!focused&&!touching&&!root.querySelector('.review-quote.is-expanded')&&!document.hidden)timer=setTimeout(()=>go(active+1),5000);}
 function go(i){active=(i+slides.length)%slides.length;viewport.scrollTo({left:active*viewport.clientWidth,behavior:reduced.matches?'auto':'smooth'});schedule();}
 root.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'){hovered=true;stop();}});
 root.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'){hovered=false;schedule();}});
@@ -99,5 +99,9 @@ root.addEventListener('keydown',e=>{if(e.target.tagName==='BUTTON')return;if(e.k
 document.addEventListener('visibilitychange',schedule);
 window.addEventListener('resize',()=>{viewport.scrollTo({left:active*viewport.clientWidth,behavior:'instant'});});
 reduced.addEventListener('change',()=>{paused=reduced.matches;schedule();});
-update();schedule();
+function refreshExpandButtons(){slides.forEach(slide=>{const p=slide.querySelector('.review-text'),button=slide.querySelector('.review-expand');if(!p||!button)return;const expanded=slide.classList.contains('is-expanded');if(expanded){button.hidden=false;return;}button.hidden=false;const overflows=p.scrollHeight>p.clientHeight+2;button.hidden=!overflows;});}
+root.addEventListener('click',e=>{const button=e.target.closest('.review-expand');if(!button)return;const slide=button.closest('.review-quote');const expanded=slide.classList.toggle('is-expanded');button.setAttribute('aria-expanded',String(expanded));button.textContent=expanded?'Read less':'Read more';if(expanded)stop();else schedule();});
+window.addEventListener('resize',refreshExpandButtons);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(refreshExpandButtons);
+refreshExpandButtons();update();schedule();
 })();

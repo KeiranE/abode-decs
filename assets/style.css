@@ -375,3 +375,41 @@ a.review-more,a.review-more:hover,a.review-more:focus-visible{background:transpa
 
 .services-section .service-groups>.group-card[hidden]{display:none!important}
 @media(min-width:1081px){.services-section .service-groups:has(.group-card[hidden]){grid-template-columns:repeat(2,minmax(0,1fr))}.services-section .service-groups:has(.group-card[hidden])>.group-card:not([hidden]){grid-column:auto!important}}
+
+
+/* PREVIEW HERO V3: room-scale, before/after reveal, all other site styles unchanged. */
+.abode-room-hero{--reveal:48%;position:relative;isolation:isolate;overflow:hidden;min-height:clamp(600px,82svh,780px);padding:55px 0 64px;display:flex;align-items:center;background:#081e2c!important}
+.abode-room-hero::before,.abode-room-hero::after{display:none!important}
+.abode-room-scene{position:absolute;inset:0 0 0 38%;overflow:hidden;z-index:1;background:#d7d0c5}
+.abode-room-before,.abode-room-after{position:absolute;inset:0;background-image:url('work-bedroom-panelling.webp');background-size:cover;background-position:50% 50%;transform:scale(1.025)}
+.abode-room-before{filter:grayscale(.7) saturate(.36) brightness(1.13) contrast(.85);background-color:#b6b1aa}
+.abode-room-before::after{content:"";position:absolute;inset:0;background:linear-gradient(140deg,rgba(196,188,175,.54),rgba(220,212,198,.17));mix-blend-mode:color}
+.abode-room-after{clip-path:inset(0 0 0 var(--reveal));filter:saturate(1.07) contrast(1.035)}
+.abode-room-surface{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(7,26,39,.3),transparent 32%),linear-gradient(0deg,rgba(4,18,29,.7),transparent 25%,transparent 76%,rgba(4,18,29,.3));z-index:2}
+.abode-room-split{position:absolute;top:0;bottom:0;left:var(--reveal);width:2px;background:#fff;box-shadow:0 0 25px #0006;z-index:4;pointer-events:none}
+.abode-room-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:58px;height:58px;border:2px solid white;border-radius:50%;background:#c99d4b;color:#082b45;font-size:1.7rem;box-shadow:0 10px 30px #0005}
+.abode-room-topline{position:absolute;top:25px;left:26px;right:26px;display:flex;justify-content:space-between;gap:16px;z-index:5;color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.17em;text-shadow:0 2px 9px #0009}
+.abode-room-label{position:absolute;top:52%;z-index:5;background:#071d2cdd;color:#fff;padding:7px 12px;font-size:.65rem;letter-spacing:.12em;font-weight:700;pointer-events:none}.abode-room-label-before{left:15px}.abode-room-label-after{right:15px}
+.abode-room-controls{position:absolute;left:28px;right:28px;bottom:54px;z-index:6;display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px 18px;color:#fff;font-size:.8rem;font-weight:700}
+.abode-room-controls label{grid-column:1/-1;letter-spacing:.06em}
+.abode-room-controls input{width:100%;height:34px;accent-color:#c99d4b;cursor:ew-resize;touch-action:pan-y}
+.abode-room-controls button{min-height:44px;padding:10px 15px;background:#c99d4b;border:1px solid #c99d4b;color:#061d2d;font-weight:750;cursor:pointer}
+.abode-room-controls button:focus-visible,.abode-room-controls input:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.abode-room-disclaimer{position:absolute;bottom:13px;left:28px;right:28px;z-index:6;color:#fff;font-size:.61rem;line-height:1.35;text-shadow:0 2px 8px #000}
+.abode-room-copy{position:relative;z-index:7;width:100%;max-width:1440px;padding-right:62%;pointer-events:none}
+.abode-room-copy>*{pointer-events:auto}
+.abode-room-copy .eyebrow{color:#e1c78c;letter-spacing:.14em;text-transform:uppercase;font-size:.71rem;font-weight:700}
+.abode-room-copy h1{font-size:clamp(3rem,5.1vw,5.8rem);line-height:1.02;letter-spacing:-.055em;margin:18px 0 20px;color:#fff;text-wrap:balance}
+.abode-room-copy>p:not(.eyebrow){font-size:clamp(.96rem,1.15vw,1.1rem);line-height:1.65;color:#d7e1e6}
+.abode-room-copy .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.abode-room-copy .button{min-height:50px;padding:13px 19px;border-radius:0}
+.abode-room-copy .button:not(.outline){background:#c99d4b;color:#071d2c;border-color:#c99d4b}
+.abode-room-copy .button.outline{background:transparent;color:#fff;border-color:#ffffff80}
+@media(min-width:751px){.abode-room-hero{background:linear-gradient(90deg,#061d2d 0%,#061d2d 38%,#193446 50%,#081e2c 100%)!important}.abode-room-copy{padding-right:64%}.abode-room-scene{left:39%}.abode-room-copy h1{font-size:clamp(3.1rem,4.6vw,5.5rem)}}
+@media(max-width:1050px) and (min-width:751px){.abode-room-copy{padding-right:59%}.abode-room-scene{left:44%}.abode-room-copy h1{font-size:clamp(2.8rem,4.3vw,4.4rem)}.abode-room-controls{grid-template-columns:1fr}.abode-room-controls button{justify-self:start}}
+@media(max-width:750px){.abode-room-hero{min-height:0;padding:0 0 40px;display:flex;flex-direction:column;align-items:stretch}.abode-room-scene{position:relative;inset:auto;height:clamp(320px,76vw,490px);width:100%;order:0}.abode-room-copy{order:1;padding:28px 22px 0;max-width:650px}.abode-room-copy h1{font-size:clamp(2.65rem,9vw,4.3rem);margin:16px 0}.abode-room-copy .actions{margin-top:20px}.abode-room-controls{left:16px;right:16px;bottom:45px;grid-template-columns:1fr auto;gap:4px 8px}.abode-room-controls button{font-size:.68rem;padding:8px;min-height:40px}.abode-room-topline{top:13px;left:15px;right:15px;font-size:.55rem}.abode-room-disclaimer{left:15px;right:15px;bottom:8px;font-size:.52rem}.abode-room-label{top:43%;font-size:.55rem;padding:6px}.abode-room-handle{width:44px;height:44px;font-size:1.3rem}}
+@media(prefers-reduced-motion:reduce){.abode-room-before,.abode-room-after{transform:none}.abode-room-copy>*{animation:none!important}}
+/* All five cards equal dimensions, centred 3 + 2 at desktop widths; no oversized second row. */
+@media(min-width:1081px){.services-section .service-groups{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}.services-section .service-groups>.group-card{flex:0 1 calc((100% - 44px)/3);width:calc((100% - 44px)/3);min-width:0;grid-column:auto!important}.services-section .service-groups>.group-card[hidden]{display:none!important}}
+@media(min-width:651px) and (max-width:1080px){.services-section .service-groups{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}.services-section .service-groups>.group-card{flex:0 1 calc((100% - 20px)/2);width:calc((100% - 20px)/2);min-width:0;grid-column:auto!important}.services-section .service-groups>.group-card[hidden]{display:none!important}}
+@media(max-width:650px){.services-section .service-groups{display:grid;grid-template-columns:1fr}.services-section .service-groups>.group-card{grid-column:auto!important;width:100%}}

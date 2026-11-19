@@ -128,3 +128,6 @@ refreshExpandButtons();update();schedule();
   window.addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(move)},{passive:true});move();
  }
 })();
+
+/* Cinematic art direction: small, bounded desktop-only parallax of existing project photos. */
+(()=>{const hero=document.querySelector('.premium-editorial-hero');if(!hero)return;const art=hero.querySelector('.premium-hero-art');if(!art)return;const reduced=matchMedia('(prefers-reduced-motion: reduce)');if(reduced.matches)return;const desktop=matchMedia('(min-width: 751px) and (pointer: fine)');let pending=false;function paint(){pending=false;if(!desktop.matches)return;const amount=Math.max(0,Math.min(1,window.scrollY/Math.max(1,hero.offsetHeight)));art.style.transform='translate3d(0,'+(amount*48)+'px,0)';}window.addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(paint)}},{passive:true});paint()})();

@@ -108,3 +108,7 @@ window.addEventListener('resize',refreshExpandButtons);
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(refreshExpandButtons);
 refreshExpandButtons();update();schedule();
 })();
+
+
+/* Interactive conceptual room reveal, isolated to the homepage preview. */
+(()=>{const hero=document.querySelector('[data-room-hero]');if(!hero)return;const range=hero.querySelector('#abode-room-range'),play=hero.querySelector('[data-room-play]'),reduce=matchMedia('(prefers-reduced-motion: reduce)');let raf=0,playing=false,start=0;function set(value){const n=Math.max(0,Math.min(100,Number(value)));hero.style.setProperty('--reveal',n+'%');range.value=String(Math.round(n));range.setAttribute('aria-valuetext',Math.round(n)+' percent finished room revealed')}function stop(){playing=false;cancelAnimationFrame(raf);play.textContent='See the transformation ↗'}function animate(t){if(!playing)return;if(!start)start=t;const p=Math.min(1,(t-start)/2400),ease=1-Math.pow(1-p,3);set(100*ease);if(p<1)raf=requestAnimationFrame(animate);else{playing=false;start=0;play.textContent='Replay transformation ↗'}}range.addEventListener('input',()=>{stop();set(range.value)});play.addEventListener('click',()=>{stop();set(0);if(reduce.matches){set(100);play.textContent='Replay transformation ↗';return}playing=true;start=0;play.textContent='Playing…';raf=requestAnimationFrame(animate)});document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing)stop()});set(48)})();

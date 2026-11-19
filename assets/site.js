@@ -87,6 +87,9 @@ function update(){active=index();}
 function stop(){clearTimeout(timer);timer=null;}
 function schedule(){stop();if(!paused&&!hovered&&!focused&&!touching&&!root.querySelector('.review-quote.is-expanded')&&!document.hidden)timer=setTimeout(()=>go(active+1),5000);}
 function go(i){active=(i+slides.length)%slides.length;viewport.scrollTo({left:active*viewport.clientWidth,behavior:reduced.matches?'auto':'smooth'});schedule();}
+const prev=root.querySelector('[data-review-prev]'),next=root.querySelector('[data-review-next]');
+if(prev)prev.addEventListener('click',()=>go(index()-1));
+if(next)next.addEventListener('click',()=>go(index()+1));
 root.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'){hovered=true;stop();}});
 root.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'){hovered=false;schedule();}});
 root.addEventListener('focusin',()=>{focused=true;stop();});

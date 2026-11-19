@@ -413,3 +413,10 @@ a.review-more,a.review-more:hover,a.review-more:focus-visible{background:transpa
 @media(min-width:1081px){.services-section .service-groups{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}.services-section .service-groups>.group-card{flex:0 1 calc((100% - 44px)/3);width:calc((100% - 44px)/3);min-width:0;grid-column:auto!important}.services-section .service-groups>.group-card[hidden]{display:none!important}}
 @media(min-width:651px) and (max-width:1080px){.services-section .service-groups{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}.services-section .service-groups>.group-card{flex:0 1 calc((100% - 20px)/2);width:calc((100% - 20px)/2);min-width:0;grid-column:auto!important}.services-section .service-groups>.group-card[hidden]{display:none!important}}
 @media(max-width:650px){.services-section .service-groups{display:grid;grid-template-columns:1fr}.services-section .service-groups>.group-card{grid-column:auto!important;width:100%}}
+
+/* New matched-camera, original illustrative room assets for the concept preview. */
+.abode-room-before{background-image:url('room-before-concept.svg')!important;filter:none!important;background-size:cover;background-position:center}
+.abode-room-after{background-image:url('room-after-concept.svg')!important;filter:none!important;background-size:cover;background-position:center;clip-path:inset(0 calc(100% - var(--reveal)) 0 0)!important}
+.abode-room-before::after{display:none!important}
+.abode-room-scene{background:#b9ac98}
+.abode-room-label-before{background:#071d2cdd}.abode-room-label-after{background:#071d2cdd}

@@ -327,3 +327,40 @@ a.button.gold:hover,.button.gold:hover,.button-gold:hover,.gold-button:hover,.bu
 /* Keep choose-a-service photographs at native resolution and avoid enlarged hover sampling. */
 .choose-section .choose-image{object-fit:cover;object-position:center;transform:none!important;image-rendering:auto;transition:none}
 .choose-section .choose-grid>a:hover .choose-image{transform:none!important}
+
+/* Muted antique-gold CTA treatment: header/hero Plan your project and Our Work Facebook link. */
+:root{--abode-cta-gold:#aa8955;--abode-cta-gold-ink:#76582e;--abode-cta-gold-soft:rgba(170,137,85,.12);--abode-cta-gold-hover:rgba(170,137,85,.24)}
+.header .nav>a.button[href="contact.html"],
+.work-section a.button[href*="facebook.com"],
+body:has(.work-section) .gallery-page-link[href*="facebook.com"]{
+ background:var(--abode-cta-gold-soft)!important;
+ color:var(--abode-cta-gold-ink)!important;
+ border:1.5px solid rgba(150,113,56,.74)!important;
+ border-radius:3px;
+ box-shadow:none!important;
+ text-decoration:none;
+ font-weight:700;
+ transition:background-color .2s ease,border-color .2s ease,color .2s ease!important;
+}
+.header .nav>a.button[href="contact.html"]:hover,
+.work-section a.button[href*="facebook.com"]:hover,
+body:has(.work-section) .gallery-page-link[href*="facebook.com"]:hover{
+ background:var(--abode-cta-gold-hover)!important;
+ border-color:#957344!important;
+ color:#5c431f!important;
+}
+#abode-transformation-hero .abode-hero-content .actions>a.button:first-child{
+ background:rgba(170,137,85,.22)!important;
+ border:1.5px solid rgba(221,184,122,.85)!important;
+ color:#f2d6a7!important;
+}
+#abode-transformation-hero .abode-hero-content .actions>a.button:first-child:hover{
+ background:rgba(170,137,85,.42)!important;
+ border-color:#e5c491!important;
+ color:#fff5e4!important;
+}
+.header .nav>a.button[href="contact.html"]:focus-visible,
+.work-section a.button[href*="facebook.com"]:focus-visible,
+#abode-transformation-hero .abode-hero-content .actions>a.button:first-child:focus-visible{
+ outline:3px solid #b58b43;outline-offset:3px;
+}

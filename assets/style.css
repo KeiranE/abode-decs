@@ -364,3 +364,22 @@ body:has(.work-section) .gallery-page-link[href*="facebook.com"]:hover{
 #abode-transformation-hero .abode-hero-content .actions>a.button:first-child:focus-visible{
  outline:3px solid #b58b43;outline-offset:3px;
 }
+
+/* Solid muted-gold CTAs: white text, contrasting lighter gold border. */
+.header .nav>a.button[href="contact.html"],
+.work-section a.button[href*="facebook.com"],
+body:has(.work-section) .gallery-page-link[href*="facebook.com"],
+#abode-transformation-hero .abode-hero-content .actions>a.button:first-child{
+ background:#97713c!important;
+ color:#fff!important;
+ border:1.5px solid #c7a36a!important;
+ box-shadow:none!important;
+}
+.header .nav>a.button[href="contact.html"]:hover,
+.work-section a.button[href*="facebook.com"]:hover,
+body:has(.work-section) .gallery-page-link[href*="facebook.com"]:hover,
+#abode-transformation-hero .abode-hero-content .actions>a.button:first-child:hover{
+ background:#805e30!important;
+ color:#fff!important;
+ border-color:#d6b681!important;
+}

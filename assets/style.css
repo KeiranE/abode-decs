@@ -383,3 +383,24 @@ body:has(.work-section) .gallery-page-link[href*="facebook.com"]:hover,
  color:#fff!important;
  border-color:#d6b681!important;
 }
+
+/* Option 02 — brushed gold: gentle tonal depth with a champagne edge. */
+.header .nav>a.button[href="contact.html"],
+.work-section a.button[href*="facebook.com"],
+body:has(.work-section) .gallery-page-link[href*="facebook.com"],
+#abode-transformation-hero .abode-hero-content .actions>a.button:first-child{
+ background:linear-gradient(120deg,#856331 0%,#b89863 52%,#97713c 100%)!important;
+ border:1.5px solid #d5b57f!important;
+ color:#fff!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 2px 7px rgba(39,30,16,.10)!important;
+ transition:background .2s ease,filter .2s ease,border-color .2s ease,box-shadow .2s ease!important;
+}
+.header .nav>a.button[href="contact.html"]:hover,
+.work-section a.button[href*="facebook.com"]:hover,
+body:has(.work-section) .gallery-page-link[href*="facebook.com"]:hover,
+#abode-transformation-hero .abode-hero-content .actions>a.button:first-child:hover{
+ background:linear-gradient(120deg,#97713c 0%,#c5a675 52%,#a27b43 100%)!important;
+ border-color:#e1c796!important;
+ color:#fff!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 3px 10px rgba(39,30,16,.15)!important;
+}

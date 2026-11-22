@@ -826,3 +826,34 @@ body:has(#abode-transformation-hero) .work-section{
       repeating-linear-gradient(91deg,rgba(107,96,80,.009) 0px,rgba(107,96,80,.009) 1px,transparent 1px,transparent 6px);
   }
 }
+
+
+/* Reviews: keep stars aligned with the Read more control on mobile.
+   The wrapper preserves the original button for the existing carousel JS. */
+.review-actions{display:contents}
+@media(max-width:650px){
+ .review-carousel .review-quote .review-actions{
+   display:flex;
+   align-items:center;
+   justify-content:space-between;
+   gap:12px;
+   min-height:25px;
+   margin:3px 0 8px;
+ }
+ .review-carousel .review-actions .review-expand{
+   margin:0;
+   flex:0 1 auto;
+   min-width:0;
+ }
+ .review-carousel .review-actions .review-slide-stars{
+   position:static;
+   display:flex;
+   flex:0 0 auto;
+   align-items:center;
+   margin-left:auto;
+   font-size:clamp(.77rem,3.3vw,.98rem);
+   letter-spacing:.035em;
+   line-height:1;
+ }
+ .review-carousel .review-actions .review-expand[hidden]{display:none}
+}

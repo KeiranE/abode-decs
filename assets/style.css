@@ -784,3 +784,45 @@ dialog:has(.lightbox-head) .lightbox-controls{margin-top:10px}
 @media(prefers-reduced-motion:reduce){
  dialog:has(.lightbox-head) > img{transition:none}
 }
+
+
+/* Homepage: restrained photorealistic freshly painted wall + natural daylight.
+   Layered CSS only: no new assets, no extra requests, no layout/interaction changes. */
+body:has(#abode-transformation-hero) .review-strip,
+body:has(#abode-transformation-hero) .choose-section,
+body:has(#abode-transformation-hero) .work-section{
+  position:relative;
+  isolation:isolate;
+  background-color:#faf9f6;
+  background-image:
+    radial-gradient(ellipse 78% 110% at 82% 14%,rgba(255,255,255,.94),transparent 78%),
+    radial-gradient(ellipse 72% 90% at 4% 100%,rgba(223,216,204,.24),transparent 76%),
+    repeating-linear-gradient(93deg,rgba(102,89,71,.012) 0px,rgba(102,89,71,.012) 1px,transparent 1px,transparent 5px);
+  background-repeat:no-repeat, no-repeat, repeat;
+}
+body:has(#abode-transformation-hero) .review-strip .review-inner,
+body:has(#abode-transformation-hero) .review-strip .review-heading{
+  background:transparent;
+}
+body:has(#abode-transformation-hero) .choose-section{
+  background-color:#fbfaf8;
+  background-image:
+    linear-gradient(119deg,rgba(229,218,201,.17) 0%,rgba(255,255,255,0) 33%),
+    linear-gradient(119deg,transparent 38%,rgba(218,208,192,.075) 42%,rgba(255,255,255,0) 56%),
+    radial-gradient(ellipse 80% 95% at 85% 70%,rgba(255,255,255,.9),transparent 82%),
+    repeating-linear-gradient(91deg,rgba(107,96,80,.009) 0px,rgba(107,96,80,.009) 1px,transparent 1px,transparent 6px);
+}
+body:has(#abode-transformation-hero) .work-section{
+  background-color:#faf9f7;
+  background-image:
+    radial-gradient(ellipse 100% 95% at 50% 25%,rgba(255,255,255,.93),transparent 80%),
+    radial-gradient(ellipse 72% 80% at 95% 100%,rgba(220,211,196,.18),transparent 80%),
+    repeating-linear-gradient(88deg,rgba(105,93,77,.01) 0px,rgba(105,93,77,.01) 1px,transparent 1px,transparent 6px);
+}
+@media(max-width:650px){
+  body:has(#abode-transformation-hero) .choose-section{
+    background-image:
+      radial-gradient(ellipse 100% 80% at 90% 0%,rgba(230,218,200,.14),transparent 85%),
+      repeating-linear-gradient(91deg,rgba(107,96,80,.009) 0px,rgba(107,96,80,.009) 1px,transparent 1px,transparent 6px);
+  }
+}

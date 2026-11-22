@@ -857,3 +857,56 @@ body:has(#abode-transformation-hero) .work-section{
  }
  .review-carousel .review-actions .review-expand[hidden]{display:none}
 }
+
+/* Option 01 — Textured Ivory: mobile-only testimonial card styling.
+   Existing review copy, expansion controls and carousel behaviour are unchanged. */
+@media(max-width:650px){
+ .review-carousel .review-quote{
+   justify-content:flex-start;
+   min-height:205px;
+   padding:28px 19px 53px 30px;
+   border:1px solid rgba(219,206,185,.85);
+   border-radius:18px;
+   background-color:#fbf7f0;
+   background-image:
+     radial-gradient(ellipse 85% 95% at 83% 18%,rgba(255,255,255,.86),transparent 78%),
+     repeating-linear-gradient(93deg,rgba(117,95,68,.018) 0,rgba(117,95,68,.018) 1px,transparent 1px,transparent 6px);
+   box-shadow:0 8px 22px rgba(33,40,45,.085),inset 0 1px 0 rgba(255,255,255,.85);
+ }
+ .review-carousel .review-quote-mark{
+   top:12px;
+   left:11px;
+   color:#a87b27;
+   font-size:2.1rem;
+   line-height:1;
+ }
+ .review-carousel .review-quote>p{
+   color:#102f44;
+   font-size:clamp(.9rem,3.8vw,1rem);
+   line-height:1.55;
+   letter-spacing:-.008em;
+   margin-bottom:13px;
+ }
+ .review-carousel .review-quote .review-actions{
+   padding-top:10px;
+   border-top:1px solid rgba(177,138,82,.48);
+   margin:0 0 10px;
+ }
+ .review-carousel .review-actions .review-expand{
+   color:#082b45;
+   font-size:.82rem;
+   text-underline-offset:3px;
+ }
+ .review-carousel .review-actions .review-slide-stars{
+   color:#b98a2c;
+ }
+ .review-carousel .review-quote footer{
+   min-height:24px;
+   padding-right:76px;
+   color:#082b45;
+ }
+ .review-carousel .review-quote footer strong{
+   font-size:.78rem;
+   font-weight:700;
+ }
+}

@@ -910,3 +910,54 @@ body:has(#abode-transformation-hero) .work-section{
    font-weight:700;
  }
 }
+
+/* Motion-only enhancements adapted from the approved design prototype.
+   Scoped to homepage; existing typography, colours, spacing and layouts unchanged. */
+@media (hover:hover) and (pointer:fine){
+ body:has(#abode-transformation-hero) .choose-grid>a,
+ body:has(#abode-transformation-hero) .service-groups .group-card,
+ body:has(#abode-transformation-hero) .gallery .photo{
+   transition:transform .35s cubic-bezier(.2,.7,.2,1);
+ }
+ body:has(#abode-transformation-hero) .choose-grid>a:hover,
+ body:has(#abode-transformation-hero) .service-groups .group-card:hover{
+   transform:translateY(-3px);
+ }
+ body:has(#abode-transformation-hero) .choose-grid>a .choose-image,
+ body:has(#abode-transformation-hero) .service-groups .group-card>img,
+ body:has(#abode-transformation-hero) .gallery .photo img{
+   transition:transform .75s cubic-bezier(.2,.7,.2,1);
+ }
+ body:has(#abode-transformation-hero) .choose-grid>a:hover .choose-image,
+ body:has(#abode-transformation-hero) .service-groups .group-card:hover>img,
+ body:has(#abode-transformation-hero) .gallery .photo:hover img{
+   transform:scale(1.045);
+ }
+ body:has(#abode-transformation-hero) .service-groups .text-link{
+   display:inline-block;
+   transition:transform .3s ease;
+ }
+ body:has(#abode-transformation-hero) .service-groups .group-card:hover .text-link{
+   transform:translateX(5px);
+ }
+}
+@media (prefers-reduced-motion:no-preference){
+ body.abode-motion-ready .abode-scroll-reveal{
+   opacity:0;
+   transform:translateY(22px);
+   transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1);
+ }
+ body.abode-motion-ready .abode-scroll-reveal.abode-in-view{
+   opacity:1;
+   transform:none;
+ }
+}
+@media (prefers-reduced-motion:reduce){
+ body:has(#abode-transformation-hero) .choose-grid>a,
+ body:has(#abode-transformation-hero) .service-groups .group-card,
+ body:has(#abode-transformation-hero) .gallery .photo img,
+ body:has(#abode-transformation-hero) .service-groups .text-link{
+   transition:none!important;
+   transform:none!important;
+ }
+}

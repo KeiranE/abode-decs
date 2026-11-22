@@ -1,4 +1,4 @@
-name: AI upscale Abode service images
+name: Restore and gently AI-enhance original Abode service photos
 on:
   workflow_dispatch:
   push:
@@ -7,23 +7,29 @@ on:
 permissions:
   contents: write
 jobs:
-  upscale:
+  restore-enhance:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: true
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install AI upscaler
+      - name: Install image processing libraries
         run: pip install opencv-contrib-python-headless==4.10.0.84 numpy==1.26.4 pillow
-      - name: AI super-resolution of the four original photos
+      - name: Restore original photos and apply gentle AI super-resolution
         run: |
           python - <<'PY'
-          import cv2, urllib.request
-          from PIL import Image, ImageFilter
+          import subprocess, urllib.request
+          import cv2
+          import numpy as np
           from pathlib import Path
+          from PIL import Image
+          # Original files are taken from the commit before the earlier AI upscaling,
+          # not from the previously processed images.
+          original_commit='1c4e63052baabfec0c39de1985d28531045707cd'
           model='https://raw.githubusercontent.com/Saafke/FSRCNN_Tensorflow/master/models/FSRCNN_x3.pb'
           urllib.request.urlretrieve(model,'/tmp/FSRCNN_x3.pb')
           sr=cv2.dnn_superres.DnnSuperResImpl_create()
@@ -31,37 +37,30 @@ jobs:
           sr.setModel('fsrcnn',3)
           names=['work-staircase-teal.webp','image-1.webp','image-6.webp','image-13.webp']
           for name in names:
-              p=Path('assets')/name
-              original=cv2.imread(str(p),cv2.IMREAD_COLOR)
-              if original is None: raise RuntimeError(f'Cannot read {p}')
+              path=Path('assets')/name
+              original_bytes=subprocess.check_output(['git','show',f'{original_commit}:{path}'])
+              original=cv2.imdecode(np.frombuffer(original_bytes,dtype=np.uint8),cv2.IMREAD_COLOR)
+              if original is None: raise RuntimeError(f'Unable to read original {path}')
               h,w=original.shape[:2]
-              # Neural-network super-resolution, then a restrained 2x master.
-              upscaled=sr.upsample(original)
-              upscaled=cv2.resize(upscaled,(w*2,h*2),interpolation=cv2.INTER_AREA)
-              rgb=cv2.cvtColor(upscaled,cv2.COLOR_BGR2RGB)
-              result=Image.fromarray(rgb).filter(ImageFilter.UnsharpMask(radius=1.0,percent=55,threshold=3))
-              result.save(p,'WEBP',quality=92,method=6)
-              print(f'AI upscaled {p}: {w}x{h} -> {w*2}x{h*2}')
+              target=(round(w*1.5),round(h*1.5))
+              # Use a trained neural upscaler, then blend it with a clean
+              # interpolation of the untouched original to prevent invented detail.
+              neural=cv2.resize(sr.upsample(original),target,interpolation=cv2.INTER_AREA)
+              faithful=cv2.resize(original,target,interpolation=cv2.INTER_CUBIC)
+              result=cv2.addWeighted(faithful,0.68,neural,0.32,0)
+              # Light luminance-only sharpening, avoiding artificial halos.
+              lab=cv2.cvtColor(result,cv2.COLOR_BGR2LAB)
+              l,a,b=cv2.split(lab)
+              blur=cv2.GaussianBlur(l,(0,0),0.7)
+              l=cv2.addWeighted(l,1.12,blur,-0.12,0)
+              result=cv2.cvtColor(cv2.merge((l,a,b)),cv2.COLOR_LAB2BGR)
+              rgb=cv2.cvtColor(result,cv2.COLOR_BGR2RGB)
+              Image.fromarray(rgb).save(path,'WEBP',quality=94,method=6)
+              print(f'Restored and subtly AI enhanced {path}: {w}x{h} -> {target[0]}x{target[1]}')
           PY
-      - name: Remove ineffective browser sharpening filter
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          p=Path('index.html')
-          s=p.read_text()
-          start=s.find('<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden"><filter id="abode-service-detail"')
-          if start!=-1:
-              end=s.index('</svg>',start)+len('</svg>')
-              s=s[:start]+s[end:]
-              p.write_text(s)
-          p=Path('assets/style.css')
-          s=p.read_text()
-          s=s.replace('filter:url("#abode-service-detail");','filter:none;')
-          p.write_text(s)
-          PY
-      - name: Commit upscaled images and deploy via Vercel
+      - name: Commit original-based enhanced photos
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/work-staircase-teal.webp assets/image-1.webp assets/image-6.webp assets/image-13.webp assets/style.css index.html
-          git diff --cached --quiet || (git commit -m "AI upscale four service panel photographs" && git push)
+          git add assets/work-staircase-teal.webp assets/image-1.webp assets/image-6.webp assets/image-13.webp
+          git diff --cached --quiet || (git commit -m "Restore original photos with subtle AI enhancement" && git push)

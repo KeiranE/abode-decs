@@ -481,7 +481,7 @@ body:has(.work-section) .gallery-page-link[href*="facebook.com"]:hover,
 
 /* Enhance perceived detail in existing client project images without changing their content. */
 .choose-section .choose-grid>a .choose-image{
- filter:url("#abode-service-detail");
+ filter:none;
  image-rendering:auto;
  object-fit:cover;
 }

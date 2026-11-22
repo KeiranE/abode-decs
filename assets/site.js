@@ -111,3 +111,32 @@ window.addEventListener('resize',refreshExpandButtons);
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(refreshExpandButtons);
 refreshExpandButtons();update();schedule();
 })();
+
+/* Prototype scroll reveals: homepage only, progressive enhancement. */
+(()=>{
+ const home=document.getElementById('abode-transformation-hero');
+ if(!home||!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ const targets=[...document.querySelectorAll(
+   '.choose-section>.wrap>.eyebrow,.choose-section>.wrap>h2,.choose-section .choose-grid>a,'+
+   '.services-section .section-head,.services-section .group-card,'+
+   '.work-section .section-head,.work-section .gallery-toolbar,'+
+   '.quote-app-section .quote-app-layout>aside'
+ )];
+ if(!targets.length)return;
+ const observer=new IntersectionObserver((entries)=>{
+   for(const entry of entries){
+     if(!entry.isIntersecting)continue;
+     entry.target.classList.add('abode-in-view');
+     observer.unobserve(entry.target);
+   }
+ },{threshold:.08,rootMargin:'0px 0px -24px 0px'});
+ targets.forEach(el=>{
+   el.classList.add('abode-scroll-reveal');
+   if(el.getBoundingClientRect().top<window.innerHeight*.92){
+     el.classList.add('abode-in-view');
+   }else{
+     observer.observe(el);
+   }
+ });
+ document.body.classList.add('abode-motion-ready');
+})();

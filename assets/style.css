@@ -961,3 +961,23 @@ body:has(#abode-transformation-hero) .work-section{
    transform:none!important;
  }
 }
+
+/* Homepage main-section image framing review (gallery deliberately excluded).
+   Keep natural image detail: no sharpening filters or artificial CSS upscaling. */
+body:has(#abode-transformation-hero) .choose-section .choose-image,
+body:has(#abode-transformation-hero) .services-section .group-card>img{
+  object-fit:cover;
+  image-rendering:auto;
+  filter:none;
+  backface-visibility:hidden;
+}
+/* Position focal areas within the existing card dimensions. */
+body:has(#abode-transformation-hero) .choose-section .choose-grid>a:nth-child(1) .choose-image{object-position:50% 48%}
+body:has(#abode-transformation-hero) .choose-section .choose-grid>a:nth-child(2) .choose-image{object-position:50% 54%}
+body:has(#abode-transformation-hero) .choose-section .choose-grid>a:nth-child(3) .choose-image{object-position:50% 48%}
+body:has(#abode-transformation-hero) .choose-section .choose-grid>a:nth-child(4) .choose-image{object-position:50% 48%}
+body:has(#abode-transformation-hero) .services-section .group-card:nth-child(1)>img{object-position:50% 48%}
+body:has(#abode-transformation-hero) .services-section .group-card:nth-child(2)>img{object-position:50% 53%}
+body:has(#abode-transformation-hero) .services-section .group-card:nth-child(3)>img{object-position:50% 56%}
+body:has(#abode-transformation-hero) .services-section .group-card:nth-child(4)>img{object-position:50% 58%}
+body:has(#abode-transformation-hero) .services-section .group-card:nth-child(5)>img{object-position:50% 48%}
